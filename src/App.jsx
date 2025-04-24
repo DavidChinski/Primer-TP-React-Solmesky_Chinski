@@ -1,17 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Formulario from './componentes/form'
+import './componentes/form.css'
 import Cards from './componentes/cards'
-
+import './componentes/cards.css'
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-    <Formulario/>
-    <Cards/>
+    <h1>ADMINISTRADOR DE PACIENTES</h1>
+    <div className='container'>
+      <div className='row'>
+        <div className='one-half column'>
+        <Formulario/>
+        </div>
+        <div className='one-half column'>
+        <Cards/>
+
+        </div>
+      </div>
+    </div>
     </>
   )
 }

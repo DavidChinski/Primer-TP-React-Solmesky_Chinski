@@ -2,9 +2,7 @@ function Cards(){
 
     return(
    <div>
-   
-   <div className="one-half column">
-            <h2>Administra tus citas</h2>
+      <h2>Administra tus citas</h2>
             <div className="cita">
               <p>Mascota: <span>Nina</span></p>
               <p>Dueño: <span>Martin</span></p>
@@ -27,7 +25,6 @@ function Cards(){
               <p>Sintomas: <span>No está comiendo</span></p><button className="button elimnar u-full-width">Eliminar ×</button>
             </div>
           </div>
-                         </div>
     )   
    
    }

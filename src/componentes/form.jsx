@@ -1,8 +1,8 @@
-
+import Titulo from "./titulo";
 function Formulario() {
   return (
-    <div>
-      <h2>Crear mi Cita</h2>
+    <div> 
+       <Titulo texto="Crear mi Cita" />
       <form>
         <label>Nombre Mascota</label>
         <input

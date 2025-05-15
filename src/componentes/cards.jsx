@@ -1,48 +1,29 @@
 import Cita from "./cita";
 import Titulo from "./titulo";
-function Cards() {
-  const citas = [
-    {
-      id: 1,
-      mascota: "Nina",
-      dueño: "Martin",
-      fecha: "2021-08-05",
-      hora: "08:20",
-      sintomas: "Le duele la pierna",
-    },
-    {
-      id: 2,
-      mascota: "Sifon",
-      dueño: "Flecha",
-      fecha: "2023-08-05",
-      hora: "09:24",
-      sintomas: "Duerme mucho",
-    },
-    {
-      id: 3,
-      mascota: "Floki",
-      dueño: "Ari",
-      fecha: "2023-08-05",
-      hora: "16:15",
-      sintomas: "No está comiendo",
-    },
-  ];
-  const eliminarCita = (id) => {
-    alert(`Cita con ID ${id} eliminada`); 
-  };
+
+function Cards({ citas, setCitas }) {
+  function eliminar(citaAEliminar) {
+    const nuevasCitas = [];
+    for (let i = 0; i < citas.length; i++) {
+      if (citas[i] !== citaAEliminar) {
+        nuevasCitas.push(citas[i]);
+      }
+    }
+    setCitas(nuevasCitas);
+  }
 
   return (
     <div>
-    <Titulo texto="Administra tus citas" />
-      {citas.map((cita) => (
+      <Titulo texto="Administra tus Citas" />
+      {citas.map((cita, index) => (
         <Cita
-          key={cita.id}
+          key={index}
           mascota={cita.mascota}
-          dueño={cita.dueño}
+          dueño={cita.propietario}
           fecha={cita.fecha}
           hora={cita.hora}
           sintomas={cita.sintomas}
-          onEliminar={() => eliminarCita(cita.id)} 
+          onEliminar={() => eliminar(cita)}
         />
       ))}
     </div>

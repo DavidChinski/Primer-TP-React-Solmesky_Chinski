@@ -23,6 +23,12 @@ function Formulario({ setCitas, citas }) {
   }
 
   function agregarCita() {
+
+    if (Object.values(formulario).some(valor => valor === "")) {
+      alert("Por favor completá todos los campos.");
+      return;
+    }
+    
     const nuevaLista = citas.concat([formulario]);
     setCitas(nuevaLista);
 
@@ -91,5 +97,4 @@ function Formulario({ setCitas, citas }) {
     </div>
   );
 }
-
 export default Formulario;

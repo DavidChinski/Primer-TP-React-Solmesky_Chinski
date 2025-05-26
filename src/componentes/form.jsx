@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Titulo from "./titulo";
 
-function Formulario({ setCitas, citas }) {
+function Formulario({ agregarCita}) {
   const [formulario, setFormulario] = useState({
     mascota: "",
     propietario: "",
@@ -11,27 +11,18 @@ function Formulario({ setCitas, citas }) {
   });
 
   function actualizarFormulario(nombreCampo, valorCampo) {
-    const nuevoFormulario = { 
-      mascota: formulario.mascota,
-      propietario: formulario.propietario,
-      fecha: formulario.fecha,
-      hora: formulario.hora,
-      sintomas: formulario.sintomas
-    };
+    const nuevoFormulario = { ...formulario };
     nuevoFormulario[nombreCampo] = valorCampo;
     setFormulario(nuevoFormulario);
   }
 
-  function agregarCita() {
-
+  function agregar() {
     if (Object.values(formulario).some(valor => valor === "")) {
-      alert("Por favor completá todos los campos.");
+      alert("completar los camposs");
       return;
     }
-    
-    const nuevaLista = citas.concat([formulario]);
-    setCitas(nuevaLista);
 
+    agregarCita(formulario);
     setFormulario({
       mascota: "",
       propietario: "",
@@ -89,7 +80,7 @@ function Formulario({ setCitas, citas }) {
         <button
           type="button"
           className="u-full-width button-primary"
-          onClick={agregarCita}
+          onClick={agregar}
         >
           Agregar Cita
         </button>
@@ -97,4 +88,5 @@ function Formulario({ setCitas, citas }) {
     </div>
   );
 }
+
 export default Formulario;
